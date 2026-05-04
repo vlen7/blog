@@ -1,4 +1,9 @@
+# Keep scripts local, only blog content on GitHub
+publish.py
+watch.py
+deploy.sh
 output/
+templates/
 *.pyc
 __pycache__/
 .DS_Store
