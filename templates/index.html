@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="微冷 — 技术、思考与日常">
+<title>微冷</title>
+<style>
+  :root {
+    --bg: #fdfdfc;
+    --text: #2c2c2c;
+    --text-muted: #787878;
+    --accent: #b87333;
+    --accent-hover: #d4893b;
+    --border: #e8e4df;
+    --card-bg: #fff;
+    --code-bg: #f5f3ef;
+    --max-w: 680px;
+    --radius: 6px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a18;
+      --text: #d4d4d0;
+      --text-muted: #8a8a84;
+      --accent: #d4893b;
+      --accent-hover: #e09a50;
+      --border: #333330;
+      --card-bg: #222220;
+      --code-bg: #2a2a28;
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 2rem 1.2rem;
+  }
+
+  /* Header */
+  header {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  header .subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  /* Nav */
+  nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.15s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* Posts */
+  .section-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .post-list {
+    list-style: none;
+  }
+
+  .post-item {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-date {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 5rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .post-link {
+    font-size: 1rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+
+  .post-link:hover {
+    color: var(--accent);
+  }
+
+  .post-link .external-icon {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-left: 0.3rem;
+  }
+
+  /* Card style for AI news */
+  .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
+    transition: border-color 0.15s;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent);
+  }
+
+  .feature-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .feature-card h3 a:hover { color: var(--accent); }
+
+  .feature-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    background: var(--code-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .container { padding: 1.2rem 1rem; }
+    header { padding: 2rem 0 1.5rem; }
+    header h1 { font-size: 1.5rem; }
+    .post-item { flex-direction: column; gap: 0.15rem; }
+    .post-date { min-width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <h1>微冷</h1>
+  <p class="subtitle">技术 · 思考 · 日常</p>
+  <nav>
+    <a href="/">首页</a>
+    <a href="/ai_news/">AI 日报</a>
+    <a href="https://github.com/vlen7" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Featured: AI News -->
+  <div class="feature-card">
+    <h3>
+      <a href="/ai_news/">🗞️ AI 日报 <span class="badge">每日更新</span></a>
+    </h3>
+    <p>
+      每日 AI 领域资讯聚合：ArXiv 论文、GitHub 热门项目、Hacker News、MIT Tech Review、HuggingFace Blog、NYT、权威公众号。统一评分排序，含中文深度摘要与原文翻译。
+    </p>
+  </div>
+
+  <!-- Blog posts -->
+  <h2 class="section-title">文章</h2>
+  <ul class="post-list">
+{{posts}}
+  </ul>
+
+  <p style="margin-top:2rem; color:var(--text-muted); font-size:0.88rem;">
+    📝 更多文章即将更新。订阅 <a href="/rss.xml" style="color:var(--accent);">RSS</a>
+  </p>
+</main>
+
+<footer>
+  <p>© 2026 Hehan · Powered by plain HTML · <a href="https://hehan.tech">hehan.tech</a></p>
+</footer>
+
+</div>
+
+</body>
+</html>
